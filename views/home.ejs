@@ -1,8 +1,27 @@
 <%- include('partials/header') -%>
 
-<h1>Home</h1>
+<!-- <% for (let i = 0; i < postsMade.length; i++) { %>
 
-<p><%= homeContent %></p>
+  <h1><%= postsMade[i].title %></h1>
+
+  <p><%= postsMade[i].content %></p>
+
+<% } %> -->
+
+  <h1>Home</h1>
+  <p><%= homeContent %></p>
+
+<% postsMade.forEach((element)=>{ %>
+  <h1><%= element.title %></h1>
+  <p><%= helper.truncate(element.content, 100)%> <a href="posts/<%= element.title %>" > Read More</a></p>
+
+<% }) %>
+
+<!-- <% const truncate = (str)=>{ %>
+  <%  return (str.length > 100) ? str.slice(0, 99) + '...' : str; %>
+  <% } %> -->
+
+
 
 
 <%- include('partials/footer') -%>
